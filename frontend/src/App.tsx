@@ -1,6 +1,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
+import React from "react";
 
 
 type Theme = "light" | "dark";
@@ -442,183 +443,175 @@ function HeroSection({ theme }: { theme: Theme }) {
   );
 }
 
-// 3D Feature Card
-function FeatureCard3D({
+// Minimal Feature Card — accessible, flat, and animated
+function FeatureCard({
   feature,
   theme,
   index,
 }: {
-  feature: { icon: string; title: string; description: string; gradient: string };
+  feature: { icon: string; title: string; description: string; detail?: string };
   theme: Theme;
   index: number;
 }) {
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
+  const [open, setOpen] = useState(false);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const mouseX = e.clientX - centerX;
-    const mouseY = e.clientY - centerY;
-
-    setRotateX(-mouseY / 10);
-    setRotateY(mouseX / 10);
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
+  const handleKey = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setOpen((v) => !v);
+    }
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      role="listitem"
+      tabIndex={0}
+      onKeyDown={handleKey}
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        perspective: "1000px",
-      }}
-      className="cursor-pointer"
+      transition={{ duration: 0.45, delay: index * 0.08 }}
+      whileHover={{ y: -6 }}
+      className={`relative rounded-2xl p-6 transition-shadow duration-200 focus:outline-none focus:ring-2 focus:ring-violet-500 group ${
+        theme === "dark" ? "bg-zinc-900 border border-white/6 shadow-lg" : "bg-white border border-black/6 shadow-sm"
+      }`}
+      onClick={() => setOpen((v) => !v)}
     >
-      <motion.div
-        animate={{
-          rotateX,
-          rotateY,
+      {/* shiny hover overlay */}
+      <div
+        aria-hidden
+        className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+        style={{
+          background: theme === "dark" ? "linear-gradient(120deg, rgba(255,255,255,0.02), rgba(255,255,255,0.06))" : "linear-gradient(120deg, rgba(255,255,255,0.5), rgba(255,255,255,0.15))",
+          mixBlendMode: theme === "dark" ? "overlay" : "normal",
         }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        style={{ transformStyle: "preserve-3d" }}
-        className={`relative p-8 rounded-3xl transition-colors duration-300 ${
-          theme === "dark"
-            ? "bg-zinc-900/80 border border-white/5 hover:border-white/20"
-            : "bg-zinc-50 border border-black/5 hover:border-black/10"
-        }`}
-      >
-        {/* Gradient overlay on hover */}
-        <div
-          className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${feature.gradient} opacity-0 hover:opacity-10 transition-opacity duration-300 pointer-events-none`}
-        />
-
-        <motion.div
-          className="text-5xl mb-6"
-          style={{ transform: "translateZ(40px)" }}
-          whileHover={{ scale: 1.2, rotate: [0, -5, 5, 0] }}
-          transition={{ duration: 0.3 }}
-        >
+      />
+        <div className="flex items-start gap-4">
+        <div className="text-2xl text-current opacity-90" aria-hidden>
           {feature.icon}
-        </motion.div>
-        <h3
-          className={`text-xl font-bold mb-3 ${
-            theme === "dark" ? "text-white" : "text-black"
-          }`}
-          style={{ transform: "translateZ(30px)" }}
-        >
-          {feature.title}
-        </h3>
-        <p
-          className={`leading-relaxed ${
-            theme === "dark" ? "text-zinc-400" : "text-zinc-600"
-          }`}
-          style={{ transform: "translateZ(20px)" }}
-        >
-          {feature.description}
-        </p>
-      </motion.div>
+        </div>
+        <div className="flex-1">
+          <h3 className={`text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"}`}>
+            {feature.title}
+          </h3>
+          <p className={`mt-2 text-sm ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}>
+            {feature.description}
+          </p>
+          <div
+            aria-hidden={!open}
+            className={`mt-3 text-sm text-zinc-500 transition-max-h overflow-hidden ${open ? "max-h-40" : "max-h-0"}`}
+          >
+            {feature.detail}
+          </div>
+        </div>
+      </div>
+      <button
+        aria-expanded={open}
+        aria-controls={`feature-detail-${index}`}
+        className={`mt-4 text-sm font-medium underline opacity-80 ${theme === "dark" ? "text-zinc-300" : "text-zinc-600"}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpen((v) => !v);
+        }}
+      >
+        {open ? "Hide" : "Learn more"}
+      </button>
     </motion.div>
   );
 }
 
 // Features Section
-function FeaturesSection({ theme }: { theme: Theme }) {
+export function FeaturesSection({ theme }: { theme: Theme }) {
   const features = [
     {
-      icon: "⚡",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+      ),
       title: "Zero Latency",
-      description:
-        "Your keystrokes sync instantly across all connected editors. No lag, just flow.",
-      gradient: "from-amber-500 to-orange-500",
+      description: "Keystrokes sync instantly across collaborators.",
+      detail: "Optimized socket transport and delta updates ensure near-instant sync even on high-latency networks.",
     },
     {
-      icon: "👁️",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+          <path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      ),
       title: "Live Presence",
-      description:
-        "See exactly where your teammates are working with real-time cursors and selections.",
-      gradient: "from-blue-500 to-cyan-500",
+      description: "See cursors, selections and who's editing in real time.",
+      detail: "Color-coded cursors, avatars, and activity indicators help teams avoid conflicts and stay in flow.",
     },
     {
-      icon: "🔐",
-      title: "Bank-Level Security",
-      description:
-        "Your code is encrypted end-to-end. We can't see it, nobody else can either.",
-      gradient: "from-emerald-500 to-green-500",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+          <rect x="3" y="11" width="18" height="11" rx="2" />
+          <path d="M7 11V7a5 5 0 0110 0v4" />
+        </svg>
+      ),
+      title: "End-to-end Encryption",
+      description: "Your code stays private — encrypted in transit and at rest.",
+      detail: "We use modern cryptography for workspace-level keys; you retain control of access and retention policies.",
     },
     {
-      icon: "🧠",
-      title: "Smart Assist",
-      description:
-        "Context-aware suggestions that understand your codebase and coding style.",
-      gradient: "from-violet-500 to-purple-500",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+          <path d="M12 2v6" />
+          <path d="M5 7l7 7 7-7" />
+        </svg>
+      ),
+      title: "Context Assist",
+      description: "Helpful, context-aware suggestions for faster development.",
+      detail: "Suggestions respect your codebase and style, and run locally or on secure infra as configured.",
     },
     {
-      icon: "🚀",
-      title: "Ship Instantly",
-      description:
-        "One-click deployments integrated right into your workflow. No context switching.",
-      gradient: "from-rose-500 to-pink-500",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+          <path d="M5 12h14" />
+          <path d="M12 5l7 7-7 7" />
+        </svg>
+      ),
+      title: "One-click Deploy",
+      description: "Deploy from the editor without context switching.",
+      detail: "CI integrations make shipping a single action; preview URLs and rollbacks are first-class.",
     },
     {
-      icon: "🔗",
-      title: "Works Everywhere",
-      description:
-        "Connect with GitHub, GitLab, VS Code, and all your favorite dev tools.",
-      gradient: "from-indigo-500 to-blue-500",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+          <path d="M10 14a3 3 0 100-6 3 3 0 000 6z" />
+          <path d="M21 12a9 9 0 10-18 0" />
+        </svg>
+      ),
+      title: "Integrations",
+      description: "Connect GitHub, CI, and favorite tools.",
+      detail: "Webhooks, OAuth, and native plugins keep your existing workflows intact.",
     },
   ];
 
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+  };
+
   return (
-    <section
-      id="features"
-      className={`py-24 md:py-32 px-6 ${
-        theme === "dark" ? "bg-black" : "bg-white"
-      }`}
-    >
+    <section id="features" className={`py-20 md:py-28 px-6 ${theme === "dark" ? "bg-black" : "bg-white"}`}>
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <h2
-            className={`text-4xl md:text-6xl font-bold tracking-tight mb-6 ${
-              theme === "dark" ? "text-white" : "text-black"
-            }`}
-          >
+        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <h2 className={`text-3xl md:text-5xl font-bold tracking-tight mb-4 ${theme === "dark" ? "text-white" : "text-black"}`}>
             Ship together
           </h2>
-          <p
-            className={`text-xl ${
-              theme === "dark" ? "text-zinc-500" : "text-zinc-500"
-            }`}
-          >
-            Everything your team needs to build amazing things
+          <p className={`text-lg md:text-xl ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"}`}>
+            Everything your team needs to build confidently.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} role="list" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <FeatureCard3D
-              key={index}
-              feature={feature}
-              theme={theme}
-              index={index}
-            />
+            <FeatureCard key={index} feature={feature} theme={theme} index={index} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
