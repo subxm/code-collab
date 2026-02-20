@@ -679,11 +679,11 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
         {/* Front Face - neutral */}
         <div
           className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{ transform: "translateZ(128px)" }}
         >
-          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
+          <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Collaboration First
           </span>
         </div>
@@ -691,11 +691,11 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
         {/* Back Face - neutral */}
         <div
           className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{ transform: "rotateY(180deg) translateZ(128px)" }}
         >
-          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
+          <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Ideas Flow Free
           </span>
         </div>
@@ -703,14 +703,14 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
         {/* Left Face - neutral */}
         <div
           className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{
             transform: "rotateY(-90deg) translateZ(128px)",
             width: "256px",
           }}
         >
-          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
+          <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Ship Faster
           </span>
         </div>
@@ -718,14 +718,14 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
         {/* Right Face - neutral */}
         <div
           className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{
             transform: "rotateY(90deg) translateZ(128px)",
             width: "256px",
           }}
         >
-          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
+          <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Stay Focused
           </span>
         </div>
@@ -733,14 +733,14 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
         {/* Top Face - neutral */}
         <div
           className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{
             transform: "rotateX(90deg) translateZ(128px)",
             height: "256px",
           }}
         >
-          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
+          <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Create Magic
           </span>
         </div>
@@ -748,14 +748,14 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
         {/* Bottom Face - neutral */}
         <div
           className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{
             transform: "rotateX(-90deg) translateZ(128px)",
             height: "256px",
           }}
         >
-          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
+          <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Stay Hot
           </span>
         </div>
