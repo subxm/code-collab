@@ -1,0 +1,615 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.codecollab:codecollab >----------------------
+[INFO] Building CodeCollab 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.4.1:run (default-cli) > test-compile @ codecollab >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ codecollab ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ codecollab ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ codecollab ---
+[INFO] skip non existing resourceDirectory C:\Users\subham\Desktop\asdasd\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ codecollab ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.4.1:run (default-cli) < test-compile @ codecollab <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.4.1:run (default-cli) @ codecollab ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.1)
+
+2026-02-18T21:06:25.619+05:30  INFO 9836 --- [  restartedMain] com.codecollab.CodeCollabApplication     : Starting CodeCollabApplication using Java 23.0.1 with PID 9836 (C:\Users\subham\Desktop\asdasd\backend\target\classes started by subham in C:\Users\subham\Desktop\asdasd\backend)
+2026-02-18T21:06:25.621+05:30  INFO 9836 --- [  restartedMain] com.codecollab.CodeCollabApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-02-18T21:06:25.660+05:30  INFO 9836 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-18T21:06:25.661+05:30  INFO 9836 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-18T21:06:26.209+05:30  INFO 9836 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-18T21:06:26.263+05:30  INFO 9836 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 5 JPA repository interfaces.
+2026-02-18T21:06:26.696+05:30  INFO 9836 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2026-02-18T21:06:26.706+05:30  INFO 9836 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-18T21:06:26.706+05:30  INFO 9836 --- [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-02-18T21:06:26.740+05:30  INFO 9836 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-18T21:06:26.741+05:30  INFO 9836 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1079 ms
+2026-02-18T21:06:26.830+05:30  INFO 9836 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-18T21:06:26.869+05:30  INFO 9836 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2026-02-18T21:06:26.894+05:30  INFO 9836 --- [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-02-18T21:06:27.092+05:30  INFO 9836 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-18T21:06:27.114+05:30  INFO 9836 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-18T21:06:27.243+05:30  INFO 9836 --- [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4893f9e
+2026-02-18T21:06:27.244+05:30  INFO 9836 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-18T21:06:27.280+05:30  WARN 9836 --- [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-18T21:06:27.294+05:30  INFO 9836 --- [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-18T21:06:27.972+05:30  INFO 9836 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-18T21:06:28.038+05:30  INFO 9836 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-18T21:06:28.309+05:30  INFO 9836 --- [  restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-18T21:06:28.309+05:30  WARN 9836 --- [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-18T21:06:28.345+05:30  INFO 9836 --- [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-18T21:06:28.824+05:30  WARN 9836 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-18T21:06:29.184+05:30  INFO 9836 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-02-18T21:06:29.196+05:30  INFO 9836 --- [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-02-18T21:06:29.197+05:30  INFO 9836 --- [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7e70ca36]]
+2026-02-18T21:06:29.197+05:30  INFO 9836 --- [  restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-02-18T21:06:29.210+05:30  INFO 9836 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2026-02-18T21:06:29.216+05:30  INFO 9836 --- [  restartedMain] com.codecollab.CodeCollabApplication     : Started CodeCollabApplication in 3.941 seconds (process running for 4.296)
+2026-02-18T21:06:54.537+05:30  INFO 9836 --- [nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-18T21:06:54.538+05:30  INFO 9836 --- [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-18T21:06:54.539+05:30  INFO 9836 --- [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-18T21:06:54.664+05:30  WARN 9836 --- [nio-8085-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        rooms r1_0 
+    where
+        r1_0.room_code=? 
+    limit
+        ?
+Hibernate: 
+    insert 
+    into
+        rooms
+        (created_at, is_active, language, name, owner_id, room_code, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        room_members
+        (joined_at, role, room_id, user_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.created_at,
+        r1_0.is_active,
+        r1_0.language,
+        r1_0.name,
+        r1_0.owner_id,
+        r1_0.room_code,
+        r1_0.updated_at 
+    from
+        rooms r1_0 
+    where
+        r1_0.id=?
+Hibernate: 
+    select
+        rm1_0.id 
+    from
+        room_members rm1_0 
+    where
+        rm1_0.room_id=? 
+        and rm1_0.user_id=? 
+    limit
+        ?
+Hibernate: 
+    insert 
+    into
+        files
+        (content, created_at, language, name, parent_id, room_id, sort_order, type, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.created_at,
+        r1_0.is_active,
+        r1_0.language,
+        r1_0.name,
+        r1_0.owner_id,
+        r1_0.room_code,
+        r1_0.updated_at 
+    from
+        rooms r1_0 
+    where
+        r1_0.id=?
+Hibernate: 
+    select
+        rm1_0.id 
+    from
+        room_members rm1_0 
+    where
+        rm1_0.room_id=? 
+        and rm1_0.user_id=? 
+    limit
+        ?
+Hibernate: 
+    select
+        fn1_0.id,
+        fn1_0.content,
+        fn1_0.created_at,
+        fn1_0.language,
+        fn1_0.name,
+        fn1_0.parent_id,
+        fn1_0.room_id,
+        fn1_0.sort_order,
+        fn1_0.type,
+        fn1_0.updated_at 
+    from
+        files fn1_0 
+    where
+        fn1_0.id=?
+Hibernate: 
+    insert 
+    into
+        files
+        (content, created_at, language, name, parent_id, room_id, sort_order, type, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.created_at,
+        r1_0.is_active,
+        r1_0.language,
+        r1_0.name,
+        r1_0.owner_id,
+        r1_0.room_code,
+        r1_0.updated_at 
+    from
+        rooms r1_0 
+    where
+        r1_0.id=?
+Hibernate: 
+    select
+        rm1_0.id 
+    from
+        room_members rm1_0 
+    where
+        rm1_0.room_id=? 
+        and rm1_0.user_id=? 
+    limit
+        ?
+Hibernate: 
+    select
+        fn1_0.id,
+        fn1_0.content,
+        fn1_0.created_at,
+        fn1_0.language,
+        fn1_0.name,
+        fn1_0.parent_id,
+        fn1_0.room_id,
+        fn1_0.sort_order,
+        fn1_0.type,
+        fn1_0.updated_at 
+    from
+        files fn1_0 
+    where
+        fn1_0.room_id=? 
+    order by
+        fn1_0.sort_order
+2026-02-18T21:07:29.202+05:30  INFO 9836 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.created_at,
+        r1_0.is_active,
+        r1_0.language,
+        r1_0.name,
+        r1_0.owner_id,
+        r1_0.room_code,
+        r1_0.updated_at 
+    from
+        rooms r1_0 
+    join
+        room_members rm1_0 
+            on rm1_0.room_id=r1_0.id 
+    where
+        rm1_0.user_id=?
+Hibernate: 
+    select
+        rm1_0.id,
+        rm1_0.joined_at,
+        rm1_0.role,
+        rm1_0.room_id,
+        rm1_0.user_id 
+    from
+        room_members rm1_0 
+    where
+        rm1_0.room_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.created_at,
+        r1_0.is_active,
+        r1_0.language,
+        r1_0.name,
+        r1_0.owner_id,
+        r1_0.room_code,
+        r1_0.updated_at 
+    from
+        rooms r1_0 
+    where
+        r1_0.id=?
+Hibernate: 
+    select
+        rm1_0.id 
+    from
+        room_members rm1_0 
+    where
+        rm1_0.room_id=? 
+        and rm1_0.user_id=? 
+    limit
+        ?
+Hibernate: 
+    select
+        fn1_0.id,
+        fn1_0.content,
+        fn1_0.created_at,
+        fn1_0.language,
+        fn1_0.name,
+        fn1_0.parent_id,
+        fn1_0.room_id,
+        fn1_0.sort_order,
+        fn1_0.type,
+        fn1_0.updated_at 
+    from
+        files fn1_0 
+    where
+        fn1_0.room_id=? 
+    order by
+        fn1_0.sort_order
+2026-02-18T21:10:59.828+05:30  WARN 9836 --- [nio-8085-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2026-02-18T21:55:53.814+05:30  WARN 9836 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m26s179ms418┬╡s400ns).
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    limit
+        ?
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+Hibernate: 
+    insert 
+    into
+        users
+        (avatar_url, created_at, email, password, role, updated_at, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        rooms r1_0 
+    where
+        r1_0.room_code=? 
+    limit
+        ?
+Hibernate: 
+    insert 
+    into
+        rooms
+        (created_at, is_active, language, name, owner_id, room_code, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        room_members
+        (joined_at, role, room_id, user_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.created_at,
+        r1_0.is_active,
+        r1_0.language,
+        r1_0.name,
+        r1_0.owner_id,
+        r1_0.room_code,
+        r1_0.updated_at 
+    from
+        rooms r1_0 
+    join
+        room_members rm1_0 
+            on rm1_0.room_id=r1_0.id 
+    where
+        rm1_0.user_id=?
+Hibernate: 
+    select
+        rm1_0.id,
+        rm1_0.joined_at,
+        rm1_0.role,
+        rm1_0.room_id,
+        rm1_0.user_id 
+    from
+        room_members rm1_0 
+    where
+        rm1_0.room_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.avatar_url,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2026-02-18T21:59:21.243+05:30  WARN 9836 --- [nio-8085-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2026-02-18T21:59:27.079+05:30  WARN 9836 --- [nio-8085-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2026-02-18T22:07:25.388+05:30  INFO 9836 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2026-02-18T22:37:25.396+05:30  INFO 9836 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
