@@ -676,117 +676,89 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
         style={{ transformStyle: "preserve-3d" }}
         className="relative w-64 h-64 md:w-80 md:h-80 cursor-grab active:cursor-grabbing"
       >
-        {/* Front Face */}
+        {/* Front Face - neutral */}
         <div
-          className={`absolute inset-0 rounded-3xl flex flex-col items-center justify-center p-8 ${
-            theme === "dark"
-              ? "bg-gradient-to-br from-violet-600 to-fuchsia-600"
-              : "bg-gradient-to-br from-violet-500 to-fuchsia-500"
+          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
           }`}
           style={{ transform: "translateZ(128px)" }}
         >
-          <span className="text-6xl mb-4">🚀</span>
-          <span className="text-white font-bold text-xl text-center">
+          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Collaboration First
           </span>
         </div>
 
-        {/* Back Face */}
+        {/* Back Face - neutral */}
         <div
-          className="absolute inset-0 rounded-3xl flex flex-col items-center justify-center p-8 bg-gradient-to-br from-cyan-500 to-blue-600"
+          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+          }`}
           style={{ transform: "rotateY(180deg) translateZ(128px)" }}
         >
-          <span className="text-6xl mb-4">💡</span>
-          <span className="text-white font-bold text-xl text-center">
+          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Ideas Flow Free
           </span>
         </div>
 
-        {/* Left Face */}
+        {/* Left Face - neutral */}
         <div
-          className="absolute inset-0 rounded-3xl flex flex-col items-center justify-center p-8 bg-gradient-to-br from-emerald-500 to-green-600"
+          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+          }`}
           style={{
             transform: "rotateY(-90deg) translateZ(128px)",
             width: "256px",
           }}
         >
-          <span className="text-6xl mb-4">⚡</span>
-          <span className="text-white font-bold text-xl text-center">
+          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Ship Faster
           </span>
         </div>
 
-        {/* Right Face */}
+        {/* Right Face - neutral */}
         <div
-          className="absolute inset-0 rounded-3xl flex flex-col items-center justify-center p-8 bg-gradient-to-br from-amber-500 to-orange-600"
+          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+          }`}
           style={{
             transform: "rotateY(90deg) translateZ(128px)",
             width: "256px",
           }}
         >
-          <span className="text-6xl mb-4">🎯</span>
-          <span className="text-white font-bold text-xl text-center">
+          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Stay Focused
           </span>
         </div>
 
-        {/* Top Face */}
+        {/* Top Face - neutral */}
         <div
-          className="absolute inset-0 rounded-3xl flex flex-col items-center justify-center p-8 bg-gradient-to-br from-rose-500 to-pink-600"
+          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+          }`}
           style={{
             transform: "rotateX(90deg) translateZ(128px)",
             height: "256px",
           }}
         >
-          <span className="text-6xl mb-4">✨</span>
-          <span className="text-white font-bold text-xl text-center">
+          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Create Magic
           </span>
         </div>
 
-        {/* Bottom Face */}
+        {/* Bottom Face - neutral */}
         <div
-          className="absolute inset-0 rounded-3xl flex flex-col items-center justify-center p-8 bg-gradient-to-br from-indigo-500 to-purple-600"
+          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-white/70 border border-black/6"
+          }`}
           style={{
             transform: "rotateX(-90deg) translateZ(128px)",
             height: "256px",
           }}
         >
-          <span className="text-6xl mb-4">🔥</span>
-          <span className="text-white font-bold text-xl text-center">
+          <span className={`text-white font-bold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Stay Hot
           </span>
         </div>
-
-        {/* Floating particles */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-          className="absolute -top-8 -right-8 w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center text-2xl shadow-lg"
-          style={{ transform: "translateZ(180px)" }}
-        >
-          ⭐
-        </motion.div>
-
-        <motion.div
-          animate={{
-            y: [0, 15, 0],
-            rotate: [0, -180, -360],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 4,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-          className="absolute -bottom-6 -left-6 w-10 h-10 rounded-xl bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-xl shadow-lg"
-          style={{ transform: "translateZ(150px)" }}
-        >
-          💜
-        </motion.div>
       </motion.div>
     </div>
   );
