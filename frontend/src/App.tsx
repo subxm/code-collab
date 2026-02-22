@@ -118,7 +118,9 @@ function Navbar({
             >
               {item}
               <span
-                className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-all group-hover:w-full`}
+                className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${
+                  theme === "dark" ? "bg-white" : "bg-black"
+                }`}
               />
             </button>
           ))}
@@ -449,7 +451,7 @@ function FeatureCard({
   theme,
   index,
 }: {
-  feature: { icon: string; title: string; description: string; detail?: string };
+  feature: { icon: React.ReactNode; title: string; description: string; detail?: string };
   theme: Theme;
   index: number;
 }) {
@@ -487,7 +489,9 @@ function FeatureCard({
         }}
       />
         <div className="flex items-start gap-4">
-        <div className="text-2xl text-current opacity-90" aria-hidden>
+        <div className={`text-2xl ${
+          theme === "dark" ? "text-white" : "text-black"
+        }`} aria-hidden>
           {feature.icon}
         </div>
         <div className="flex-1">
@@ -678,10 +682,10 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
       >
         {/* Front Face - neutral */}
         <div
-          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
+          className={`absolute rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
-          style={{ transform: "translateZ(128px)" }}
+          style={{ transform: "translateZ(128px)", width: "256px", height: "256px" }}
         >
           <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Collaboration First
@@ -690,10 +694,10 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
 
         {/* Back Face - neutral */}
         <div
-          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
+          className={`absolute rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
-          style={{ transform: "rotateY(180deg) translateZ(128px)" }}
+          style={{ transform: "rotateY(180deg) translateZ(128px)", width: "256px", height: "256px" }}
         >
           <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
             Ideas Flow Free
@@ -702,12 +706,13 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
 
         {/* Left Face - neutral */}
         <div
-          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
+          className={`absolute rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{
             transform: "rotateY(-90deg) translateZ(128px)",
             width: "256px",
+            height: "256px",
           }}
         >
           <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
@@ -717,12 +722,13 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
 
         {/* Right Face - neutral */}
         <div
-          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
+          className={`absolute rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{
             transform: "rotateY(90deg) translateZ(128px)",
             width: "256px",
+            height: "256px",
           }}
         >
           <span className={`font-semibold text-xl text-center ${theme === "dark" ? "text-white" : "text-black"}`}>
@@ -732,11 +738,12 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
 
         {/* Top Face - neutral */}
         <div
-          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
+          className={`absolute rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{
             transform: "rotateX(90deg) translateZ(128px)",
+            width: "256px",
             height: "256px",
           }}
         >
@@ -747,11 +754,12 @@ function Interactive3DCube({ theme }: { theme: Theme }) {
 
         {/* Bottom Face - neutral */}
         <div
-          className={`absolute inset-0 rounded-3xl flex items-center justify-center p-8 transition-colors ${
-            theme === "dark" ? "bg-zinc-900/70 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
+          className={`absolute rounded-3xl flex items-center justify-center p-8 transition-colors ${
+            theme === "dark" ? "bg-zinc-900 border border-white/6" : "bg-zinc-50 border border-black/6 shadow-sm"
           }`}
           style={{
             transform: "rotateX(-90deg) translateZ(128px)",
+            width: "256px",
             height: "256px",
           }}
         >
@@ -903,23 +911,20 @@ function Footer({ theme }: { theme: Theme }) {
                 theme === "dark" ? "text-zinc-600" : "text-zinc-500"
               }`}
             >
-              © 2024 CodeCollab. Crafted with precision.
+              © 2026 CodeCollab. Crafted with precision.
             </p>
           </div>
 
-          <nav aria-label="Social links" className="flex items-center gap-4">
+          <nav aria-label="Social links" className="flex items-center gap-6">
             <a
               href="https://github.com/subxm"
-              aria-label="GitHub"
               target="_blank"
               rel="noopener noreferrer"
               className={`text-sm font-medium transition-colors ${
                 theme === "dark" ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black"
               }`}
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden>
-                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.11-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.52.11-3.17 0 0 .98-.31 3.22 1.19A11.2 11.2 0 0112 6.8c.99.01 1.99.13 2.92.38 2.24-1.5 3.22-1.19 3.22-1.19.63 1.65.23 2.87.11 3.17.75.81 1.2 1.84 1.2 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.77 1.07.77 2.15 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.52 11.52 0 0023.5 12C23.5 5.73 18.27.5 12 .5z" />
-              </svg>
+              Github
             </a>
 
             <a
@@ -935,16 +940,13 @@ function Footer({ theme }: { theme: Theme }) {
 
             <a
               href="https://www.linkedin.com/in/subxm/"
-              aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
               className={`text-sm font-medium transition-colors ${
                 theme === "dark" ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black"
               }`}
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden>
-                <path d="M4.98 3.5C3.88 3.5 3 4.38 3 5.48 3 6.58 3.88 7.46 4.98 7.46c1.1 0 1.98-.88 1.98-1.98C6.96 4.38 6.08 3.5 4.98 3.5zM3.5 8.98h3v11.52h-3V8.98zM9.5 8.98h2.88v1.57h.04c.4-.76 1.38-1.57 2.85-1.57 3.05 0 3.61 2.01 3.61 4.62v6.9h-3V14.9c0-1.3-.02-2.97-1.81-2.97-1.81 0-2.09 1.42-2.09 2.88v5.2h-3V8.98z" />
-              </svg>
+              Linkedin
             </a>
           </nav>
         </div>
